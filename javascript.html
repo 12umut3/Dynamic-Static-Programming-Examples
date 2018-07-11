@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>JavaScript Internal Script</title>
+      
+      <script type = "text/JavaScript">
+        function A() {
+            var b = 3; // b defines in function A
+            var a = 4; // a defines in function A
+            function B() {
+                b = 6; // for b = b+b; // b changes in function B
+                document.write("b in function B: ",b + "<br />"); // it uses chnaged b because it is defined in block B
+                document.write("a in function B: ",a + "<br />"); // it could not find "a" in block in B so it takes from function A
+                C(); // call the function C
+            }
+            B(); // call the function B
+            document.write("b in function A: ",b + "<br />"); // b changes function B 
+            document.write("a in function A: ",a + "<br />"); // a is local variable of function A
+        }
+        function C(){
+            document.write("b in function C: ",b + "<br />"); // it must be use b outside of the block so b would be 5
+            document.write("a in function C: ",a + "<br />"); // it must be use a outside of the block  so a would be 6
+        }
+        var b = 5; 
+        var a = 6;
+        A(); // call function A
+      </script>
+   </head>
+
+   <body>
+   </body>
+
+</html> 
